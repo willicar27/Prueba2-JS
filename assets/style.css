@@ -1,0 +1,16 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: #444;
+}
+img {
+    width: 250px;
+    height: 250px;
+}
+h1, h2, h4 {
+    text-align: center;
+    padding: 20px 10px;
+    color: #333;
+}

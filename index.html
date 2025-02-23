@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Ejercisios-JS</title>
+  </head>
+  <body>
+    <header>
+      <h1>Tres ejercicios de condicines en JavaScript</h1>
+    </header>
+    <main>
+      <div>
+        <h2>Primer ejercicio</h2>
+        <p>
+          Se debe construir una página con una única imagen, al hacerle click a
+          la imagen se le debe agregar un borde rojo de 2 pixeles, al hacerle
+          click nuevamente se le debe quitar el borde
+        </p>
+      </div>
+      <div id="respuesta1">
+        <h4>Respuesta</h4>
+        <img
+          id="primer-ejercicio"
+          src="./assets/imgs/alexandra-gorn-9rmnzkmydSY-unsplash.jpg"
+          alt="cafetera"
+          onclick="
+          let imagen1 = document.querySelector('#primer-ejercicio');
+          if (imagen1.style.borde){
+            imagen1.style.border = '' 
+          } else {
+            imagen1.style.border = '2px solid red'
+          }
+          "
+        />
+      </div>
+      <div>
+        <h2>Segundo ejercicio</h2>
+        <p>
+          Se debe construir una página web que permita pedir hasta 10 stickers
+          de los 3 tipos disponibles. Para eso deberá existir un input debajo de
+          cada imagen donde el usuario podrá ingresar un número. En caso de que
+          la suma de todos los stickers seleccionados sea menor o igual 10 se
+          indicará en un párrafo nuevo la cantidad de stickers llevados. Ejemplo
+          "llevas 5 stickers" en cualquier otro caso se mostrará un texto que
+          dice "Llevas demasiados stickers".
+        </p>
+      </div>
+      <div id="respuesta2">
+        <h4>Respuesta</h4>
+        <figure>
+          <img
+            class="ejer2"
+            src="./assets/imgs/demi-deherrera-L-sm1B4L1Ns-unsplash.jpg"
+            alt="cafe helado"
+          />
+          <figcaption>
+            <input id="cafe1" type="text" placeholder="ingrese cantidad" />
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            class="ejer2"
+            src="./assets/imgs/gulom-nazarov-0DcXCbtIiZM-unsplash.jpg"
+            alt="pensando en cafe"
+          />
+          <figcaption>
+            <input id="cafe2" type="text" placeholder="ingrese cantidad" />
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            class="ejer2"
+            src="./assets/imgs/mae-mu-GmoLpEYLpe8-unsplash.jpg"
+            alt="cocktail de cafe"
+          />
+          <figcaption>
+            <input id="cafe3" type="text" placeholder="ingrese cantidad" />
+          </figcaption>
+        </figure>
+        <span id="Total-cafe"></span>
+        <button
+          onclick="
+        let cafe1 = Number(document.querySelector('#cafe1').value);
+        let cafe2 = Number(document.querySelector('#cafe2').value);
+        let cafe3 = Number(document.querySelector('#cafe3').value);
+
+        let CantidadCafe = cafe1 + cafe2 + cafe3;
+        let totalCafe = document.querySelector('#Total-cafe');
+        if (CantidadCafe <= 10) {
+          totalCafe.innertext = 'Usted lleva: ' + CantidadCafe + ', Que los difrute';
+        } else {
+          totalCafe.innertext = 'Usted lleva demasiado cafe, asi no los va a disfrutar';
+        }
+        "
+        >
+          TOTAL
+        </button>
+      </div>
+    </main>
+    <script src="./assets/index.js"></script>
+  </body>
+</html>
