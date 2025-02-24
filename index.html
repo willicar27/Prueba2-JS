@@ -11,93 +11,187 @@
       <h1>Tres ejercicios de condicines en JavaScript</h1>
     </header>
     <main>
-      <div>
-        <h2>Primer ejercicio</h2>
-        <p>
-          Se debe construir una página con una única imagen, al hacerle click a
-          la imagen se le debe agregar un borde rojo de 2 pixeles, al hacerle
-          click nuevamente se le debe quitar el borde
-        </p>
-      </div>
-      <div id="respuesta1">
-        <h4>Respuesta</h4>
-        <img
-          id="primer-ejercicio"
-          src="./assets/imgs/alexandra-gorn-9rmnzkmydSY-unsplash.jpg"
-          alt="cafetera"
-          onclick="
-          let imagen1 = document.querySelector('#primer-ejercicio');
-          if (imagen1.style.borde){
-            imagen1.style.border = '' 
+      <!-- seccion 1 "primera pregunta" -->
+      <section>
+        <div>
+          <h2>Primer ejercicio</h2>
+          <p>
+            Se debe construir una página con una única imagen, al hacerle click
+            a la imagen se le debe agregar un borde rojo de 2 pixeles, al
+            hacerle click nuevamente se le debe quitar el borde
+          </p>
+        </div>
+        <div id="respuesta1">
+          <h4>Respuesta</h4>
+          <img
+            id="primer-ejercicio"
+            src="./assets/imgs/alexandra-gorn-9rmnzkmydSY-unsplash.jpg"
+            alt="cafetera"
+            onclick="
+            let imagen1 = document.querySelector('#primer-ejercicio');
+            let bordeActivo = false;
+  
+            if (bordeActivo){
+              imagen1.style.border = '' 
+              bordeActivo = false;
+            } else {
+              imagen1.style.border = '2px solid red'
+              bordeActivo = true;
+            }
+            "
+          />
+        </div>
+      </section>
+      <!-- Seccion2 "Segunda pregunta" -->
+      <section>
+        <div>
+          <h2>Segundo ejercicio</h2>
+          <p>
+            Se debe construir una página web que permita pedir hasta 10 stickers
+            de los 3 tipos disponibles. Para eso deberá existir un input debajo
+            de cada imagen donde el usuario podrá ingresar un número. En caso de
+            que la suma de todos los stickers seleccionados sea menor o igual 10
+            se indicará en un párrafo nuevo la cantidad de stickers llevados.
+            Ejemplo "llevas 5 stickers" en cualquier otro caso se mostrará un
+            texto que dice "Llevas demasiados stickers".
+          </p>
+        </div>
+        <div id="respuesta2">
+          <h4>Respuesta</h4>
+          <div id="figuras">
+            <figure>
+              <img
+                class="ejer2"
+                src="./assets/imgs/demi-deherrera-L-sm1B4L1Ns-unsplash.jpg"
+                alt="cafe helado"
+              />
+              <figcaption>
+                <input id="cafe1" type="text" placeholder="ingrese cantidad" />
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                class="ejer2"
+                src="./assets/imgs/gulom-nazarov-0DcXCbtIiZM-unsplash.jpg"
+                alt="pensando en cafe"
+              />
+              <figcaption>
+                <input id="cafe2" type="text" placeholder="ingrese cantidad" />
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                class="ejer2"
+                src="./assets/imgs/mae-mu-GmoLpEYLpe8-unsplash.jpg"
+                alt="cocktail de cafe"
+              />
+              <figcaption>
+                <input id="cafe3" type="text" placeholder="ingrese cantidad" />
+              </figcaption>
+            </figure>
+          </div>
+
+          <p id="total"></p>
+          <button
+            onclick="
+          let cafe1 = Number(document.querySelector('#cafe1').value);
+          let cafe2 = Number(document.querySelector('#cafe2').value);
+          let cafe3 = Number(document.querySelector('#cafe3').value);
+  
+          let CantidadCafe = cafe1 + cafe2 + cafe3;
+          let total = document.querySelector('#total');
+          if (CantidadCafe <= 10) {
+            total.innerHTML = 'Usted lleva: ' + CantidadCafe + ', Que los difrute🤝';
           } else {
-            imagen1.style.border = '2px solid red'
+            total.innerHTML = 'Usted lleva demasiado cafe, asi no los va a disfrutar';
           }
           "
-        />
-      </div>
-      <div>
-        <h2>Segundo ejercicio</h2>
-        <p>
-          Se debe construir una página web que permita pedir hasta 10 stickers
-          de los 3 tipos disponibles. Para eso deberá existir un input debajo de
-          cada imagen donde el usuario podrá ingresar un número. En caso de que
-          la suma de todos los stickers seleccionados sea menor o igual 10 se
-          indicará en un párrafo nuevo la cantidad de stickers llevados. Ejemplo
-          "llevas 5 stickers" en cualquier otro caso se mostrará un texto que
-          dice "Llevas demasiados stickers".
-        </p>
-      </div>
-      <div id="respuesta2">
-        <h4>Respuesta</h4>
-        <figure>
-          <img
-            class="ejer2"
-            src="./assets/imgs/demi-deherrera-L-sm1B4L1Ns-unsplash.jpg"
-            alt="cafe helado"
-          />
-          <figcaption>
-            <input id="cafe1" type="text" placeholder="ingrese cantidad" />
-          </figcaption>
-        </figure>
-        <figure>
-          <img
-            class="ejer2"
-            src="./assets/imgs/gulom-nazarov-0DcXCbtIiZM-unsplash.jpg"
-            alt="pensando en cafe"
-          />
-          <figcaption>
-            <input id="cafe2" type="text" placeholder="ingrese cantidad" />
-          </figcaption>
-        </figure>
-        <figure>
-          <img
-            class="ejer2"
-            src="./assets/imgs/mae-mu-GmoLpEYLpe8-unsplash.jpg"
-            alt="cocktail de cafe"
-          />
-          <figcaption>
-            <input id="cafe3" type="text" placeholder="ingrese cantidad" />
-          </figcaption>
-        </figure>
-        <span id="Total-cafe"></span>
-        <button
-          onclick="
-        let cafe1 = Number(document.querySelector('#cafe1').value);
-        let cafe2 = Number(document.querySelector('#cafe2').value);
-        let cafe3 = Number(document.querySelector('#cafe3').value);
+          >
+            TOTAL
+          </button>
+        </div>
+      </section>
+      <!-- Seccion3 "tercer pregunta" -->
+      <section>
+        <div>
+          <h2>Tercer ejercicio</h2>
+          <p>
+            Se debe construir una página con 3 select y opciones con dígitos del
+            1 al 9, al hacer click a la opción ingresar se debe verificar que el
+            password sea 911 y en ese caso mostrar debajo del botón ingresar, un
+            párrafo con el contenido "password 1 correcto", en caso de que el
+            password sea 714 se debe mostrar en el párrafo "password 2 es
+            correcto", si ingresa otro valor se debe mostrar "password
+            incorrecto".
+          </p>
+        </div>
+        <div id="respuesta3">
+          <h4>Respuesta</h4>
+          <div id="selectores">
+            <div class="orden">
+              <label for="selector1">Selector 1</label>
+              <select id="selector1">
+                <option value="">valor</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+            </div>
+            <div class="orden">
+              <label for="selector2">Selector 2</label>
+              <select id="selector2">
+                <option value="">valor</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+            </div>
+            <div class="orden">
+              <label for="selector3">Selector 3</label>
+              <select id="selector3">
+                <option value="">valor</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+            </div>
+          </div>
+          <button onclick="
+          let opcion1 = document.querySelector('#selector1').value;
+          let opcion2 = document.querySelector('#selector2').value;
+          let opcion3 = document.querySelector('#selector3').value;
 
-        let CantidadCafe = cafe1 + cafe2 + cafe3;
-        let totalCafe = document.querySelector('#Total-cafe');
-        if (CantidadCafe <= 10) {
-          totalCafe.innertext = 'Usted lleva: ' + CantidadCafe + ', Que los difrute';
-        } else {
-          totalCafe.innertext = 'Usted lleva demasiado cafe, asi no los va a disfrutar';
-        }
-        "
-        >
-          TOTAL
-        </button>
-      </div>
+          let password = opcion1 + opcion2 + opcion3;
+          let resultado = document.querySelector('#mensaje');
+          if (password === '911') {
+            resultado.innerHTML = 'Password 1 correcto';
+          } else if (password === '714') {  
+            resultado.innerHTML = 'Password 2 es correcto';
+          } else {
+            resultado.innerHTML = 'Password incorrecto';
+          }
+          ">Ingresar</button>
+          <p id="mensaje"></p>
+        </div>
+      </section>
     </main>
     <script src="./assets/index.js"></script>
   </body>
